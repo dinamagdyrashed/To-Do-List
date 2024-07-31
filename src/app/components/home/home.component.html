@@ -1,0 +1,25 @@
+<div class="container">
+  <div class=" my-5 h-20 ">
+    <button routerLink="/add-task" class=" w-full h-full rounded-lg bg-slate-600  text-white">Add Task</button>
+
+  </div>
+  @if (tasksService.tasks.length==0) {
+  <div class=" my-5 p-3 rounded-lg  bg-slate-300 ">
+    <p class="text-slate-700 mt-2 font-bold  text-center">There is no tasks</p>
+
+  </div>}
+  @else {
+  @for (task of tasksService.tasks; track $index ;let even=$even;let odd=$odd) {
+  <div class=" my-5 p-3 rounded-full flex justify-between items-center transition-all ease-in-out duration-150"
+    [ngClass]="task.done?'bg-green-200':'bg-slate-300'">
+    <p [routerLink]="['task',$index]" class="text-slate-700 mt-2 font-bold cursor-pointer"
+      [ngClass]="task.done?'line-through':''">{{task.title}}</p>
+    <div>
+      <i class="fa-solid fa-check text-green-600 mx-3  cursor-pointer text-2xl" (click)="taskDone($index)"></i>
+      <i class="fa-solid fa-trash text-red-500 mx-3 cursor-pointer text-2xl " (click)="deleteTask($index)"></i>
+    </div>
+
+  </div>
+  }
+  }
+</div>

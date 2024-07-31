@@ -1,0 +1,13 @@
+<div class="container">
+  <h2 class="text-center">Add New Task</h2>
+  <div>
+    <input #taskTitle type="text" class="form-control mb-4" placeholder="Write Task Title Here">
+    <textarea #taskDescription class="form-control mb-4" placeholder="Write the description"></textarea>
+  </div>
+  <div>
+    <button [routerLink]="['']" class=" w-20 h-12 rounded-lg  bg-green-500 text-white"
+      (click)="taskSave(taskTitle,taskDescription)">Save</button>
+
+    <button [routerLink]="['']" class=" w-20 h-12 ml-3 rounded-lg bg-slate-500 text-white">Cancel</button>
+  </div>
+</div>
